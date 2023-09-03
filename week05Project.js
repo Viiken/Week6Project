@@ -102,41 +102,39 @@ class Menu {
 //--------------------------------------------------------------------//
 
     createArmy() {
-    let general = prompt('Enter name for new General: ');
-    this.armys.push(new Army(general));
+        let general = prompt('Enter name for new General: ');
+        this.armys.push(new Army(general));
     }
 
 //--------------------------------------------------------------------//
 
     viewArmy() {
-    let index = prompt("Enter the index of the army that you want to view:");
-    if (index > -1 && index < this.armys.length) {
-        this.selectedArmy = this.army[index];
-        let description = 'People Following ' + this.selectedArmy.general + '\n';
-        description += ' ' + this.selectedArmy.describe() + '\n ';
-        for (let i = 0; i < this.selectedArmy.characters.length; i++) {
-            // description += i + ') ' + this.selectedArmy.characters[i].name + ' - '
-            // + this.selectedArmy.characters[i].force + '\n';
-            description += i + ') ' + this.selectedArmy.characters[i].describe() + '\n';
-    }
-    let selection1 = this.showArmyMenuOptions(description);
-    switch (selection1) {
-    case '1' :
-    this.createArmy();
-    break;
-    case '2' :
-    this.deleteArmy();
-    }
-    }
+        let index = prompt("Enter the index of the army that you want to view:");
+        if (index > -1 && index < this.armys.length) {
+            this.selectedArmy = this.army[index];
+            let description = 'People Following ' + this.selectedArmy.general + '\n';
+            description += ' ' + this.selectedArmy.describe() + '\n ';
+            for (let i = 0; i < this.selectedArmy.characters.length; i++) {
+                description += i + ') ' + this.selectedArmy.characters[i].describe() + '\n';
+        }
+        let selection1 = this.showArmyMenuOptions(description);
+        switch (selection1) {
+            case '1' :
+            this.createArmy();
+            break;
+            case '2' :
+            this.deleteArmy();
+            }
+        }
     }
 
 //--------------------------------------------------------------------//
 
     deleteArmy() {
-    let index = prompt('Enter the index of the army that has lost: ');
-    if (index > -1 && index < this.armys.length) {
-        this.armys.splice(index,1);
-    }
+        let index = prompt('Enter the index of the army that has lost: ');
+        if (index > -1 && index < this.armys.length) {
+            this.armys.splice(index,1);
+        }
     }
 
 //--------------------------------------------------------------------//
