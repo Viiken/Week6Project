@@ -1,4 +1,3 @@
-
 player1Score = 0
 player2Score = 0
 
@@ -92,8 +91,7 @@ class Deck {
   
 }
 // calling the above functions
-function main(shuffledDeck){
-  i = 0
+function main(){
   const deck1 = new Deck();
   deck1.shuffle()
   deck1.deal()
